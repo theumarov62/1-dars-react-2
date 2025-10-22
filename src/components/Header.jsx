@@ -43,10 +43,8 @@ export default function Header() {
             </li>
           </nav>
 
-        
-
           {/* Header Register */}
-          <button className="HeaderButtonRegister">Qabulga yozilish</button>
+          <button className="ButtonRegister">Qabulga yozilish</button>
         </div>
       </header>
     </>
