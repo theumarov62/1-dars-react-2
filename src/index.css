@@ -429,3 +429,45 @@ footer {
 .MainContent {
   flex: 1;
 }
+
+.menu_btn {
+  display: none;
+}
+.responsive_nav {
+  display: none;
+}
+
+.Nav {
+  position: relative;
+}
+
+.responsive_nav {
+  position: absolute;
+  padding: 20px;
+  background-color: #fff;
+  border: 2px solid #de2e54;
+  border-radius: 10px;
+  top: 71px;
+  right: 12px;
+  z-index: 200;
+  box-shadow: 1px 3px 5px 0px #de2e54;
+}
+
+.responsive_link {
+  font-size: 20px;
+}
+
+@media (max-width: 930px) {
+  .Nav {
+    display: none;
+  }
+  .ButtonRegister {
+    display: none;
+  }
+  .menu_btn {
+    display: block;
+  }
+  .responsive_nav {
+    display: block;
+  }
+}

@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
+  const [isMenu, setIsMenu] = useState(true);
+  const links = ["Xizmatlar", "Dorilar", "Asal", "Kontaktlar", "Blog"];
   return (
     <>
       <header>
@@ -16,35 +19,33 @@ export default function Header() {
 
           {/* Header Nav */}
           <nav className="Nav">
-            <li className="links">
-              <a className="link" href="#">
-                Xizmatlar
-              </a>
-            </li>
-            <li className="links">
-              <a className="link" href="#">
-                Dorilar
-              </a>
-            </li>
-            <li className="links">
-              <a className="link" href="#">
-                Asal
-              </a>
-            </li>
-            <li className="links">
-              <a className="link" href="#">
-                Kontaktlar
-              </a>
-            </li>
-            <li className="links">
-              <a className="link" href="#">
-                Blog
-              </a>
-            </li>
+            {links.map((link, idx) => (
+              <li className="links" key={idx}>
+                <a className="link" href="#">
+                  {link}
+                </a>
+              </li>
+            ))}
           </nav>
+
+          {/* responsive nav */}
+          {!isMenu && <div className="responsive_nav">
+            {links.map((link, idx) => (
+              <li onClick={() => setIsMenu(false)} className="links responsive_links" key={idx}>
+                <a className="link responsive_link" href="#">
+                  {link}
+                </a>
+              </li>
+            ))}
+          </div>}
 
           {/* Header Register */}
           <button className="ButtonRegister">Qabulga yozilish</button>
+          {isMenu ? (
+            <Menu onClick={() => setIsMenu(false)} className="menu_btn" />
+          ) : (
+            <X onClick={() => setIsMenu(true)} className="menu_btn"></X>
+          )}
         </div>
       </header>
     </>
